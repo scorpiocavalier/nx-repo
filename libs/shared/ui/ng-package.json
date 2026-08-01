@@ -1,0 +1,6 @@
+{
+  "dest": "../../../dist/libs/shared/ui",
+  "lib": {
+    "entryFile": "src/index.ts"
+  }
+}

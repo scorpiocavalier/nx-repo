@@ -1,0 +1,64 @@
+{
+  "name": "ecommerce",
+  "projectType": "application",
+  "sourceRoot": "apps/ecommerce/src",
+  "prefix": "app",
+  "tags": [
+    "type:app",
+    "scope:ecommerce"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "options": {
+        "outputPath": "dist/apps/ecommerce",
+        "index": "apps/ecommerce/src/index.html",
+        "browser": "apps/ecommerce/src/main.ts",
+        "tsConfig": "apps/ecommerce/tsconfig.app.json",
+        "styles": [
+          "apps/ecommerce/src/index.css"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular/build:dev-server",
+      "dependsOn": [],
+      "configurations": {
+        "production": {
+          "buildTarget": "ecommerce:build:production"
+        },
+        "development": {
+          "buildTarget": "ecommerce:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": {
+        "reportsDirectory": "../../coverage/apps/ecommerce"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

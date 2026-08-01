@@ -1,0 +1,36 @@
+{
+  "name": "shared-ui",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/ui/src",
+  "prefix": "ui",
+  "tags": [
+    "type:lib",
+    "scope:shared"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "npx vite build --config libs/shared/ui/vite.config.ts",
+          "npx tsc -p libs/shared/ui/tsconfig.lib.json --emitDeclarationOnly --declaration --declarationDir dist/libs/shared/ui",
+          "node libs/shared/ui/scripts/generate-package-json.mjs"
+        ],
+        "parallel": false
+      },
+      "outputs": [
+        "{workspaceRoot}/dist/libs/shared/ui"
+      ]
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": {
+        "configFile": "libs/shared/ui/vitest.config.ts",
+        "reportsDirectory": "../../../coverage/libs/shared/ui"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

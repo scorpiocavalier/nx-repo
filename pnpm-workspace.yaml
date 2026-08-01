@@ -1,0 +1,37 @@
+packages:
+  - "apps/*"
+  - "libs/*"
+
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
+  nx: true
+
+minimumReleaseAgeExclude:
+  - '@typescript-eslint/eslint-plugin@8.61.0'
+  - '@typescript-eslint/parser@8.61.0'
+  - '@typescript-eslint/project-service@8.61.0'
+  - '@typescript-eslint/scope-manager@8.61.0'
+  - '@typescript-eslint/tsconfig-utils@8.61.0'
+  - '@typescript-eslint/type-utils@8.61.0'
+  - '@typescript-eslint/types@8.61.0'
+  - '@typescript-eslint/typescript-estree@8.61.0'
+  - '@typescript-eslint/utils@8.61.0'
+  - '@typescript-eslint/visitor-keys@8.61.0'
+  - typescript-eslint@8.61.0
+
+overrides:
+  "@angular/build": "22.0.0"
+  ng-packagr: "22.0.0"
+  typescript: "~6.0.3"
+
+peerDependencyRules:
+  allowedVersions:
+    "@angular/build": "22"
+    ng-packagr: "22"
+    typescript: "6"
+    "@nx/angular>@angular-devkit/core": "22"
+    "@nx/angular>@angular-devkit/schematics": "22"
+    "@angular-devkit/core>chokidar": "5"
